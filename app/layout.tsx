@@ -96,7 +96,7 @@ export default function RootLayout({
         <Header
           brandName="Jagatirta"
           navItems={navItems}
-          ctaLabel="Jadi Relawan"
+          ctaLabel="Jadi Water Ranger"
           ctaHref="/volunteer"
         />
         <main className="flex-1">{children}</main>

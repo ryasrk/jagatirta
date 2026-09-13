@@ -228,7 +228,7 @@ export default function Page({ params }: RiverDossierPageProps) {
 
         <div className="mx-auto w-full max-w-7xl px-5 pb-14 pt-28 sm:px-8 md:pb-20 md:pt-36">
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+            <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
               <li>
                 <a href="/lokasi" className="rounded-sm underline-offset-4 transition-colors duration-200 ease-crisp hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
                   Lokasi
@@ -299,7 +299,7 @@ export default function Page({ params }: RiverDossierPageProps) {
                   <dd className="mt-1.5 flex items-center gap-2.5 font-medium text-ink">
                     <span
                       aria-hidden="true"
-                      className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-soft font-mono text-[11px] font-semibold text-brand-deep"
+                      className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-soft font-mono text-xs font-semibold text-brand-deep"
                     >
                       {inisialVerifier(river.verifier)}
                     </span>
@@ -324,7 +324,7 @@ export default function Page({ params }: RiverDossierPageProps) {
               {metrics.map((metric) => (
                 <div key={metric.label}>
                   <div className="mb-2.5 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-2">
-                    <h3 className="text-[13px] font-semibold uppercase leading-tight tracking-[0.1em] text-ink">
+                    <h3 className="text-sm font-semibold uppercase leading-tight tracking-[0.1em] text-ink">
                       {metric.label}
                     </h3>
                     <Badge tone={metric.tone}>{statusText}</Badge>
@@ -400,7 +400,7 @@ export default function Page({ params }: RiverDossierPageProps) {
               <ul className="flex flex-col divide-y divide-editorial">
                 {agenda.map((item) => (
                   <li key={item.title} className="flex gap-4 px-5 py-5 sm:px-6">
-                    <time className="flex w-16 shrink-0 flex-col text-[11px] font-semibold uppercase leading-tight tracking-[0.08em] text-brand-primary">
+                    <time className="flex w-16 shrink-0 flex-col text-xs font-semibold uppercase leading-tight tracking-[0.08em] text-brand-primary">
                       <span>{item.tanggal}</span>
                       <span className="mt-1 font-medium tracking-normal text-ink-secondary">
                         {item.jadwal}
@@ -480,7 +480,7 @@ export default function Page({ params }: RiverDossierPageProps) {
           <RiverMap rivers={[river]} height="380px" selectedSlug={river.slug} />
           <div className="flex flex-wrap items-center justify-between gap-4">
             <MapLegend />
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-secondary">
+            <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-secondary">
               {river.coordinates.lat.toFixed(4)}, {river.coordinates.lng.toFixed(4)}
             </p>
           </div>

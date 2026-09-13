@@ -75,7 +75,7 @@ export function RiverSelector({ rivers, selectedSlug, onSelect }: RiverSelectorP
                   <span className="font-mono text-2xl font-bold leading-none tabular-nums text-brand-deep">
                     {IKA_FORMAT.format(river.ikaScore)}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-secondary">
+                  <span className="font-mono text-xs uppercase tracking-[0.12em] text-ink-secondary">
                     IKA
                   </span>
                 </span>
@@ -83,7 +83,7 @@ export function RiverSelector({ rivers, selectedSlug, onSelect }: RiverSelectorP
 
               <span className="flex flex-wrap items-center gap-2">
                 <StatusPill status={river.status} label={STATUS_LABELS[river.status]} />
-                <span className="font-mono text-[11px] text-ink-secondary">
+                <span className="font-mono text-xs text-ink-secondary">
                   {formatDate(river.lastUpdated)}
                 </span>
               </span>

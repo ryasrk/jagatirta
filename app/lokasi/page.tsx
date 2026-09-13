@@ -140,7 +140,7 @@ export default function LokasiPage() {
       </header>
 
       {/* ── Peta + panel detail ──────────────────────────────────────── */}
-      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 md:py-14">
+      <div className="mx-auto max-w-7xl px-5 py-section-compact sm:px-8 md:py-section-compact">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:items-start lg:gap-10">
           {/* Pane peta — selalu di atas pada ponsel. */}
           <section aria-labelledby="peta-judul" className="min-w-0">
@@ -177,7 +177,7 @@ export default function LokasiPage() {
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 rounded-2xl border border-editorial bg-surface px-5 py-4">
               <MapLegend />
-              <p className="font-mono text-[11px] leading-tight text-ink-secondary">
+              <p className="font-mono text-xs leading-tight text-ink-secondary">
                 Sumber koordinat: pos pantau Jagatirta · WGS 84
               </p>
             </div>
@@ -266,7 +266,7 @@ const countFormatter = new Intl.NumberFormat('id-ID');
 function Metric({ label, value, tone = 'neutral' }: MetricProps) {
   return (
     <div className="bg-brand-deep/40 px-4 py-4 sm:px-5">
-      <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/65">
+      <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-white/85">
         {label}
       </dt>
       <dd

@@ -199,7 +199,7 @@ export default function ProgramPage() {
   return (
     <main className="bg-canvas">
       {/* ── Hero halaman (kompak, bukan layar penuh) ───────────────────── */}
-      <section className="relative isolate overflow-hidden bg-brand-deep px-5 py-14 text-white sm:px-8 md:py-20">
+      <section className="relative isolate overflow-hidden bg-brand-deep px-5 py-section-compact text-white sm:px-8 md:py-section-normal">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 -top-24 -z-10 h-64 w-64 rounded-full bg-brand-primary opacity-25 blur-3xl"
@@ -234,7 +234,7 @@ export default function ProgramPage() {
                   <span className="block font-display text-3xl font-bold text-brand-accent sm:text-4xl">
                     {stat.value}
                   </span>
-                  <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-white/70">
+                  <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-white/85">
                     {stat.label}
                   </span>
                 </dd>
@@ -324,7 +324,7 @@ export default function ProgramPage() {
       </Section>
 
       {/* ── Penutup — jaminan akuntabilitas ───────────────────────────── */}
-      <section className="border-t border-editorial bg-surface-pure px-5 py-14 sm:px-8 md:py-16">
+      <section className="border-t border-editorial bg-surface-pure px-5 py-section-compact sm:px-8 md:py-section-normal">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:gap-12">
           {[
             {

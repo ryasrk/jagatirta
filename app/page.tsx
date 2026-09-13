@@ -19,6 +19,8 @@ import {
   CardHeader,
   CardTitle,
   LiveIndicator,
+  Reveal,
+  RevealGroup,
   Section,
   StatCounter,
   StatusPill,
@@ -68,7 +70,6 @@ function RiverCard({ river }: { river: (typeof rivers)[number] }) {
       interactive
       href={`/lokasi/${river.slug}`}
       aria-label={`Buka peta dan data mutu air Sungai ${river.name}`}
-      className="animate-fade-up motion-reduce:animate-none"
     >
       <CardHeader action={<StatusPill status={river.status} />}>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-primary">
@@ -86,7 +87,7 @@ function RiverCard({ river }: { river: (typeof rivers)[number] }) {
           <span className="font-display text-2xl font-bold leading-none tracking-tight text-brand-deep">
             {river.ikaScore}
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-secondary">
+          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-secondary">
             Indeks IKA
           </span>
         </span>
@@ -109,7 +110,13 @@ export default function BerandaJagatirta() {
       {/* ------------------------------------------------------------------ */}
       {/* 1. HERO full-bleed                                                  */}
       {/* ------------------------------------------------------------------ */}
-      <section className="relative isolate flex min-h-[92svh] items-end overflow-hidden bg-river-navy text-white">
+      {/*
+        `items-center` menahan blok teks di tengah tinggi hero. Dengan
+        `items-end` sebelumnya, seluruh sisa ruang menumpuk di atas judul:
+        pengukuran menunjukkan ruang kosong itu tumbuh dari 289px pada layar
+        900px menjadi 786px pada layar 1440px.
+      */}
+      <section className="relative isolate flex min-h-[88svh] items-center overflow-hidden bg-river-navy text-white">
         {/* Latar gambar absolut: `object-cover` dengan tinggi penuh pembungkus,
             jadi tidak ada ruang kosong maupun pergeseran tata letak saat memuat. */}
         <img
@@ -132,22 +139,26 @@ export default function BerandaJagatirta() {
           className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-river-navy/90 to-transparent"
         />
 
-        <div className="mx-auto w-full max-w-7xl px-5 pb-16 pt-28 sm:px-8 md:pb-24 md:pt-36">
-          <div className="animate-fade-up">
+        <div className="mx-auto w-full max-w-7xl px-5 py-section-normal sm:px-8 md:py-section-loose">
+          <Reveal>
             <LiveIndicator tone="live" label="Pemantauan aktif" size="md" />
-          </div>
+          </Reveal>
 
-          <h1 className="text-display mt-6 max-w-4xl text-balance font-display font-bold text-white">
-            Menjaga Tujuh Urat Nadi Sungai Indonesia
-          </h1>
+          <Reveal delay={80}>
+            <h1 className="text-display mt-6 max-w-4xl text-balance font-display font-bold text-white">
+              Menjaga Tujuh Urat Nadi Sungai Indonesia
+            </h1>
+          </Reveal>
 
-          <p className="measure-editorial mt-6 text-base leading-relaxed text-white/85 sm:text-lg">
-            Dari Cisadane hingga Mahakam, ribuan warga mengukur pH, oksigen terlarut, dan
-            kekeruhan air sungai mereka sendiri. Datanya terbuka, terverifikasi, dan bisa
-            dipakai siapa saja untuk menuntut sungai yang lebih bersih.
-          </p>
+          <Reveal delay={150}>
+            <p className="measure-editorial mt-6 text-lg leading-relaxed text-white/90">
+              Dari Cisadane hingga Mahakam, ribuan warga mengukur pH, oksigen terlarut, dan
+              kekeruhan air sungai mereka sendiri. Datanya terbuka, terverifikasi, dan bisa
+              dipakai siapa saja untuk menuntut sungai yang lebih bersih.
+            </p>
+          </Reveal>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Reveal delay={220} className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button href="/volunteer" variant="primary" size="lg" className="w-full sm:w-auto">
               Jadi Water Ranger
             </Button>
@@ -159,34 +170,44 @@ export default function BerandaJagatirta() {
             >
               Lihat Peta Sungai
             </Button>
-          </div>
+          </Reveal>
 
-          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-5 border-t border-white/15 pt-8 sm:grid-cols-3">
+          {/*
+            Label memakai `brand-soft`, bukan `brand-accent`. Teks kapital kecil
+            berwarna teal pekat di atas foto berisiko jatuh di bawah rasio
+            kontras 4.5:1 yang disyaratkan WCAG AA untuk teks kecil; nada soft
+            jauh lebih terang terhadap latar navy.
+          */}
+          <Reveal
+            as="dl"
+            delay={300}
+            className="mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-5 border-t border-white/25 pt-8 sm:grid-cols-3"
+          >
             <div>
-              <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-accent">
+              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Cakupan
               </dt>
-              <dd className="mt-1.5 text-sm leading-snug text-white/80">
+              <dd className="mt-1.5 text-sm leading-snug text-white/85">
                 7 daerah aliran sungai di 5 pulau
               </dd>
             </div>
             <div>
-              <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-accent">
+              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Metode
               </dt>
-              <dd className="mt-1.5 text-sm leading-snug text-white/80">
+              <dd className="mt-1.5 text-sm leading-snug text-white/85">
                 Sains warga terverifikasi pos pantau
               </dd>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-accent">
+              <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-soft">
                 Akses data
               </dt>
-              <dd className="mt-1.5 text-sm leading-snug text-white/80">
+              <dd className="mt-1.5 text-sm leading-snug text-white/85">
                 Terbuka penuh, tanpa biaya
               </dd>
             </div>
-          </dl>
+          </Reveal>
         </div>
       </section>
 
@@ -195,7 +216,7 @@ export default function BerandaJagatirta() {
       {/* ------------------------------------------------------------------ */}
       <section
         aria-label="Statistik dampak Jagatirta"
-        className="relative isolate overflow-hidden bg-brand-deep px-5 py-16 text-white sm:px-8 md:py-24"
+        className="relative isolate overflow-hidden bg-brand-deep px-5 py-section-normal text-white sm:px-8 md:py-section-normal"
       >
         <span
           aria-hidden="true"
@@ -214,7 +235,7 @@ export default function BerandaJagatirta() {
                   value={stat.value}
                   label={stat.label}
                   suffix={stat.suffix}
-                  className="[&>p:last-child]:text-white/75"
+                  className="[&>p:last-child]:text-white/85"
                 />
               </div>
             ))}
@@ -230,46 +251,44 @@ export default function BerandaJagatirta() {
         eyebrow="Wilayah Sungai"
         title="Tujuh sungai, satu peta"
         description="Setiap sungai punya cerita, tekanan, dan penanggung jawabnya sendiri. Skor Indeks Kualitas Air (IKA) diperbarui dari pengukuran lapangan relawan dan diverifikasi oleh pos pantau setempat."
-        className="py-20 md:py-28"
       >
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup
+          as="ul"
+          className="card-grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {rivers.map((river) => (
-            <li key={river.id} className="flex">
-              <RiverCard river={river} />
-            </li>
+            <RiverCard key={river.id} river={river} />
           ))}
 
           {/* Kartu penutup: mengubah kisi 7 kartu menjadi ajakan, bukan baris kosong. */}
-          <li className="flex">
-            <Card
-              interactive
-              href="/lokasi"
-              className="justify-between bg-canvas before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-brand-primary before:to-brand-accent before:content-['']"
-            >
-              <CardHeader>
-                <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-primary">
-                  <Compass aria-hidden="true" className="h-4 w-4" />
-                  Peta interaktif
-                </span>
-                <CardTitle as="h3">Empat puluh lebih titik pantau menanti di peta</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <p className="measure-editorial leading-relaxed">
-                  Lihat sebaran pos pantau, nilai pH dan oksigen terlarut terbaru, serta laporan
-                  warga di sepanjang aliran — semuanya dalam satu layar.
-                </p>
-              </CardBody>
-              <CardFooter divider>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary">
-                  Buka peta sungai
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </span>
-              </CardFooter>
-            </Card>
-          </li>
-        </ul>
+          <Card
+            interactive
+            href="/lokasi"
+            className="justify-between bg-canvas before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-gradient-to-r before:from-brand-primary before:to-brand-accent before:content-['']"
+          >
+            <CardHeader>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
+                <Compass aria-hidden="true" className="h-4 w-4" />
+                Peta interaktif
+              </span>
+              <CardTitle as="h3">Empat puluh lebih titik pantau menanti di peta</CardTitle>
+            </CardHeader>
+            <CardBody>
+              <p className="measure-editorial leading-relaxed">
+                Lihat sebaran pos pantau, nilai pH dan oksigen terlarut terbaru, serta laporan
+                warga di sepanjang aliran — semuanya dalam satu layar.
+              </p>
+            </CardBody>
+            <CardFooter divider>
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary">
+                Buka peta sungai
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </span>
+            </CardFooter>
+          </Card>
+        </RevealGroup>
 
-        <div className="mt-10 flex flex-col gap-4 rounded-2xl border border-editorial bg-surface px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="mt-10 flex flex-col gap-4 rounded-surface border border-editorial bg-surface px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="flex flex-col gap-2">
             <p className="text-sm font-semibold text-ink">Arti warna pada peta</p>
             <MapLegend />
@@ -293,7 +312,6 @@ export default function BerandaJagatirta() {
         eyebrow="Program"
         title="Empat cara kami menjaga sungai"
         description="Tidak ada satu solusi tunggal untuk sungai yang tercemar. Yang kami kerjakan berlapis: mengukur, membersihkan, mengedukasi, lalu memulihkan."
-        className="py-20 md:py-28"
       >
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {jagatirtaPrograms.map((program) => {
@@ -318,7 +336,7 @@ export default function BerandaJagatirta() {
                       {program.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardBody className="text-white/75">
+                  <CardBody className="text-white/85">
                     <p className="leading-relaxed">{program.description}</p>
                   </CardBody>
                 </Card>
@@ -347,8 +365,7 @@ export default function BerandaJagatirta() {
           id="kampanye"
           eyebrow="Kampanye Aktif"
           title="Tiga perangkap sampah untuk Cisadane"
-          className="py-20 md:py-28"
-        >
+          >
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-14">
             <div className="flex flex-col gap-6">
               <span
@@ -368,7 +385,7 @@ export default function BerandaJagatirta() {
 
               <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-editorial pt-6 sm:grid-cols-3">
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-primary">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
                     Titik pasang
                   </dt>
                   <dd className="mt-1.5 font-display text-2xl font-bold leading-none text-brand-deep">
@@ -376,7 +393,7 @@ export default function BerandaJagatirta() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-primary">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
                     Panjang terjaga
                   </dt>
                   <dd className="mt-1.5 font-display text-2xl font-bold leading-none text-brand-deep">
@@ -384,7 +401,7 @@ export default function BerandaJagatirta() {
                   </dd>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
-                  <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-primary">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-primary">
                     Warga terlayani
                   </dt>
                   <dd className="mt-1.5 font-display text-2xl font-bold leading-none text-brand-deep">
@@ -411,7 +428,7 @@ export default function BerandaJagatirta() {
       {/* ------------------------------------------------------------------ */}
       <section
         aria-labelledby="ajakan-penutup"
-        className="relative isolate overflow-hidden bg-brand-deep px-5 py-20 text-white sm:px-8 md:py-28"
+        className="relative isolate overflow-hidden bg-brand-deep px-5 py-section-normal text-white sm:px-8 md:py-section-loose"
       >
         <span
           aria-hidden="true"
@@ -433,7 +450,7 @@ export default function BerandaJagatirta() {
 
           <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
             <Button href="/volunteer" variant="primary" size="lg" className="w-full sm:w-auto">
-              Daftar jadi Water Ranger
+              Jadi Water Ranger
             </Button>
             <Button
               href="/lapor"

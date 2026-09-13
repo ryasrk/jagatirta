@@ -73,7 +73,7 @@ export function RiverDetailPanel({ river, formattedDate }: RiverDetailPanelProps
           <Badge tone="neutral">Indeks {river.wasteIndex}</Badge>
         </div>
 
-        <CardTitle as="h2" className="font-display text-3xl font-extrabold tracking-tight sm:text-[2.125rem]">
+        <CardTitle as="h2" className="font-display text-3xl font-extrabold tracking-tight">
           Sungai {river.name}
         </CardTitle>
 
@@ -88,10 +88,10 @@ export function RiverDetailPanel({ river, formattedDate }: RiverDetailPanelProps
         <div className="rounded-2xl border border-editorial bg-canvas px-5 py-5">
           <div className="flex items-baseline justify-between gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-secondary">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-secondary">
                 Indeks Kualitas Air
               </p>
-              <p className="mt-1 text-[11px] leading-snug text-ink-secondary">
+              <p className="mt-1 text-xs leading-snug text-ink-secondary">
                 {STATUS_DETAIL[river.status]}
               </p>
             </div>
@@ -123,7 +123,7 @@ export function RiverDetailPanel({ river, formattedDate }: RiverDetailPanelProps
 
         {/* Tiga parameter baku mutu, masing-masing dengan zona aman terarsir. */}
         <div className="space-y-6">
-          <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-secondary">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-secondary">
             Telemetri Lab Terakhir
           </h3>
 
@@ -159,7 +159,7 @@ export function RiverDetailPanel({ river, formattedDate }: RiverDetailPanelProps
 
         {/* Isu pencemaran prioritas. */}
         <div>
-          <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-secondary">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-secondary">
             Isu Prioritas
           </h3>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -226,7 +226,7 @@ interface MetaCellProps {
 function MetaCell({ label, value, mono = false }: MetaCellProps) {
   return (
     <div className="bg-surface px-5 py-4">
-      <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-secondary">
+      <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-secondary">
         {label}
       </dt>
       <dd

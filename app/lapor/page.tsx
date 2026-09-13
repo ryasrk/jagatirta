@@ -76,7 +76,7 @@ export default function LaporPage() {
   return (
     <main className="bg-canvas">
       {/* ── Pembuka: pernyataan pembuka khas Jagatirta ─────────────────── */}
-      <section className="relative isolate overflow-hidden bg-brand-deep px-5 py-14 text-white sm:px-8 md:py-20">
+      <section className="relative isolate overflow-hidden bg-brand-deep px-5 py-section-compact text-white sm:px-8 md:py-section-normal">
         <span
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-28 -z-10 h-72 w-72 rounded-full bg-brand-primary opacity-25 blur-3xl"
@@ -111,7 +111,7 @@ export default function LaporPage() {
                 <dd className="font-display text-3xl font-bold text-brand-accent sm:text-4xl">
                   {MONITORED_BASINS}
                 </dd>
-                <dt className="text-xs uppercase tracking-[0.14em] text-white/70">
+                <dt className="text-xs uppercase tracking-[0.14em] text-white/85">
                   DAS
                   <br />
                   dipantau
@@ -121,7 +121,7 @@ export default function LaporPage() {
                 <dd className="font-display text-3xl font-bold text-brand-accent sm:text-4xl">
                   {CRITICAL_BASINS}
                 </dd>
-                <dt className="text-xs uppercase tracking-[0.14em] text-white/70">
+                <dt className="text-xs uppercase tracking-[0.14em] text-white/85">
                   DAS
                   <br />
                   berstatus kritis
@@ -203,7 +203,7 @@ export default function LaporPage() {
       </Section>
 
       {/* ── Peringatan laporan palsu + panduan singkat ─────────────────── */}
-      <section className="bg-brand-deep px-5 py-14 text-white sm:px-8 md:py-16">
+      <section className="bg-brand-deep px-5 py-section-compact text-white sm:px-8 md:py-section-normal">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
             <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-brand-accent">
@@ -239,7 +239,7 @@ export default function LaporPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t border-white/15 pt-4 text-sm leading-relaxed text-white/70">
+            <p className="mt-6 border-t border-white/15 pt-4 text-sm leading-relaxed text-white/85">
               Butuh bantuan langsung? Hubungi koordinator sungai terdekatmu melalui kanal kontak di
               bagian bawah halaman ini — sebutkan nama sungai dan patokan lokasinya.
             </p>
@@ -255,7 +255,7 @@ export default function LaporPage() {
         id="formulir"
       >
         <div className="grid gap-10 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:items-start lg:gap-14">
-          <div className="rounded-3xl border border-editorial bg-surface p-5 shadow-sm sm:p-8 lg:p-10">
+          <div className="rounded-2xl border border-editorial bg-surface p-5 shadow-sm sm:p-8 lg:p-10">
             <LaporForm />
           </div>
 

@@ -304,7 +304,7 @@ export default function CampaignPage() {
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
       <section
         aria-labelledby="kampanye-judul"
-        className="relative isolate overflow-hidden bg-brand-deep px-5 py-16 text-white sm:px-8 md:py-24"
+        className="relative isolate overflow-hidden bg-brand-deep px-5 py-section-normal text-white sm:px-8 md:py-section-normal"
       >
         <span
           aria-hidden="true"
@@ -374,7 +374,7 @@ export default function CampaignPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 border-t border-white/10 pt-4 text-xs leading-relaxed text-white/60">
+              <p className="mt-4 border-t border-white/10 pt-4 text-xs leading-relaxed text-white/85">
                 Halaman ini dilayani tanpa skrip pelacak pihak ketiga, sehingga minat Anda pada
                 sebuah kampanye tidak dijual ke jaringan iklan.
               </p>

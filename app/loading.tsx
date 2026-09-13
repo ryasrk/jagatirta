@@ -11,7 +11,7 @@ export default function Loading() {
       role="status"
       aria-live="polite"
       aria-busy="true"
-      className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 md:py-24"
+      className="mx-auto w-full max-w-7xl px-5 py-section-normal sm:px-8 md:py-section-normal"
     >
       <span className="sr-only">Memuat halaman…</span>
 
