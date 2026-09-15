@@ -96,7 +96,7 @@ export function RiverSelector({ rivers, selectedSlug, onSelect }: RiverSelectorP
               sama-sama memuat tiga isu. Dijadikan label terpisah agar setiap
               isu terbaca penuh dan tepi bawah kartu tetap rata.
             */}
-            <CardBody className="border-t border-editorial px-5 py-3">
+            <CardBody className="border-t border-editorial px-5 py-4">
               <ul className="flex flex-wrap gap-1.5">
                 {river.issues.map((issue) => (
                   <li
