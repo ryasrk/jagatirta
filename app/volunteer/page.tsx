@@ -192,7 +192,7 @@ export default function VolunteerPage() {
         title="Apa yang kamu lakukan sebagai Water Ranger"
         description="Empat pekerjaan konkret yang membuat data sungai tetap hidup dan dapat dipertanggungjawabkan."
       >
-        <ol className="grid gap-5 sm:grid-cols-2 lg:gap-6">
+        <ol className="grid gap-grid-tight sm:grid-cols-2 lg:gap-grid-normal">
           {DUTIES.map((duty, index) => (
             <li key={duty.title} className="h-full">
               <Card className="h-full border-white/15 bg-white/5 text-white">

@@ -369,7 +369,7 @@ export default function Page({ params }: RiverDossierPageProps) {
         title="Isu utama dan rencana aksi"
         description="Setiap pemantauan kami akhiri dengan komitmen lapangan yang bisa Anda ikuti secara langsung."
       >
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="grid gap-grid-normal lg:grid-cols-2 lg:gap-grid-normal">
           <Card className="flex h-full flex-col">
             <CardHeader divider action={<Badge tone="neutral">{river.issues.length} isu</Badge>}>
               <CardTitle as="h3">Isu utama</CardTitle>

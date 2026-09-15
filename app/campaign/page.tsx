@@ -406,8 +406,8 @@ export default function CampaignPage() {
                   alt="Relawan menyeret jaring pembersih sampah di tepi sungai saat aksi bersih-bersih komunitas."
                   loading="eager"
                   decoding="async"
-                  width={1200}
-                  height={900}
+                  width={1600}
+                  height={1600}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 m-0 bg-[linear-gradient(to_top,rgba(9,30,58,0.88),rgba(9,30,58,0))] px-5 pb-5 pt-14 text-xs leading-snug text-white/85 sm:px-6">
@@ -493,7 +493,7 @@ export default function CampaignPage() {
           </article>
         ) : null}
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
+        <div className="mt-10 grid gap-grid-normal md:grid-cols-2 lg:gap-grid-normal">
           {dana.slice(1).map((kampanye) => (
             <CampaignCard
               key={kampanye.id}
@@ -539,7 +539,7 @@ export default function CampaignPage() {
       >
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
           <div className="flex flex-col gap-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="grid gap-grid-tight sm:grid-cols-2 lg:grid-cols-1">
               {LANGKAH_QRIS.map((langkah, urutan) => (
                 <div
                   key={langkah.judul}

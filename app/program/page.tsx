@@ -132,7 +132,7 @@ function ProgramRow({ program, detail, reversed }: ProgramRowProps) {
 
   return (
     <article
-      className="group grid items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16"
+      className="group grid items-center gap-grid-normal md:grid-cols-2 md:gap-grid-loose lg:gap-grid-loose"
       aria-labelledby={`program-${program.slug}`}
     >
       {/* Kolom teks */}
@@ -166,7 +166,7 @@ function ProgramRow({ program, detail, reversed }: ProgramRowProps) {
                 aria-hidden="true"
                 className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent"
               />
-              <span className="text-[0.9375rem] leading-relaxed text-ink md:text-base">
+              <span className="text-sm leading-relaxed text-ink md:text-base">
                 {activity}
               </span>
             </li>
@@ -293,7 +293,7 @@ export default function ProgramPage() {
         description="Tidak perlu latar belakang sains atau lingkungan. Yang kami butuhkan hanya waktu tiga jam dan kemauan untuk belajar dari sungai di dekat tempat tinggalmu."
         id="terlibat"
       >
-        <ol className="grid gap-8 md:grid-cols-3 md:gap-10">
+        <ol className="grid gap-grid-normal md:grid-cols-3 md:gap-grid-loose">
           {engagementSteps.map((step, index) => (
             <li
               key={step.title}
@@ -305,7 +305,7 @@ export default function ProgramPage() {
               <h3 className="mt-3 text-xl font-semibold tracking-tight text-ink">
                 {step.title}
               </h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-secondary md:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary md:text-base">
                 {step.body}
               </p>
             </li>
@@ -325,7 +325,7 @@ export default function ProgramPage() {
 
       {/* ── Penutup — jaminan akuntabilitas ───────────────────────────── */}
       <section className="border-t border-editorial bg-surface-pure px-5 py-section-compact sm:px-8 md:py-section-normal">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-3 md:gap-12">
+        <div className="mx-auto grid max-w-7xl gap-grid-normal md:grid-cols-3 md:gap-grid-loose">
           {[
             {
               icon: ShieldCheck,
@@ -355,7 +355,7 @@ export default function ProgramPage() {
                 <h2 className="mt-4 text-lg font-semibold tracking-tight text-ink">
                   {item.title}
                 </h2>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-secondary">
+                <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
                   {item.body}
                 </p>
               </div>

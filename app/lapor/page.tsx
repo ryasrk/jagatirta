@@ -159,7 +159,7 @@ export default function LaporPage() {
         description="Tidak ada laporan yang hilang begitu saja. Setiap kiriman melewati tiga tahap yang sama, dan setiap tahap meninggalkan jejak yang bisa kamu tanyakan dengan nomor rujukanmu."
         id="alur"
       >
-        <ol className="grid gap-8 md:grid-cols-3 md:gap-6 lg:gap-10">
+        <ol className="grid gap-grid-normal md:grid-cols-3 md:gap-grid-normal lg:gap-grid-loose">
           {PROCESS_STEPS.map((step, index) => {
             const Icon = step.icon;
             // Garis penghubung antar tahap: hanya antar kartu, tidak pernah menggantung.
@@ -189,7 +189,7 @@ export default function LaporPage() {
                   {step.title}
                 </h3>
 
-                <p className="measure-editorial mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-secondary">
+                <p className="measure-editorial mt-3 flex-1 text-sm leading-relaxed text-ink-secondary">
                   {step.body}
                 </p>
 
@@ -235,7 +235,7 @@ export default function LaporPage() {
                   >
                     {index + 1}
                   </span>
-                  <span className="text-[0.9375rem] leading-relaxed text-white/85">{point}</span>
+                  <span className="text-sm leading-relaxed text-white/85">{point}</span>
                 </li>
               ))}
             </ul>

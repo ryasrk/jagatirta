@@ -122,8 +122,8 @@ export default function BerandaJagatirta() {
         <img
           src="/images/hero-banner.jpg"
           alt="Relawan memantau kualitas air sungai dari tepi bantaran saat matahari terbit"
-          width={1920}
-          height={1280}
+          width={1600}
+          height={1600}
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
@@ -178,6 +178,12 @@ export default function BerandaJagatirta() {
             kontras 4.5:1 yang disyaratkan WCAG AA untuk teks kecil; nada soft
             jauh lebih terang terhadap latar navy.
           */}
+          {/*
+            Nilai `dd` dibuat seragam satu baris. Sebelumnya "Sains warga
+            terverifikasi pos pantau" membungkus ke baris kedua sementara dua
+            kolom lain cukup satu baris, sehingga tepi bawah baris bergerigi
+            meski ketiganya rata-atas.
+          */}
           <Reveal
             as="dl"
             delay={300}
@@ -188,7 +194,7 @@ export default function BerandaJagatirta() {
                 Cakupan
               </dt>
               <dd className="mt-1.5 text-sm leading-snug text-white/85">
-                7 daerah aliran sungai di 5 pulau
+                7 DAS di 5 pulau
               </dd>
             </div>
             <div>
@@ -196,7 +202,7 @@ export default function BerandaJagatirta() {
                 Metode
               </dt>
               <dd className="mt-1.5 text-sm leading-snug text-white/85">
-                Sains warga terverifikasi pos pantau
+                Sains warga terverifikasi
               </dd>
             </div>
             <div className="col-span-2 sm:col-span-1">
@@ -254,7 +260,7 @@ export default function BerandaJagatirta() {
       >
         <RevealGroup
           as="ul"
-          className="card-grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="card-grid grid-cols-1 gap-grid-tight sm:grid-cols-2 lg:grid-cols-3"
         >
           {rivers.map((river) => (
             <RiverCard key={river.id} river={river} />
@@ -313,7 +319,7 @@ export default function BerandaJagatirta() {
         title="Empat cara kami menjaga sungai"
         description="Tidak ada satu solusi tunggal untuk sungai yang tercemar. Yang kami kerjakan berlapis: mengukur, membersihkan, mengedukasi, lalu memulihkan."
       >
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-grid-normal sm:grid-cols-2">
           {jagatirtaPrograms.map((program) => {
             const Icon = PROGRAM_ICONS[program.icon];
 

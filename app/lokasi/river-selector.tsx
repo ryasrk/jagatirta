@@ -35,7 +35,7 @@ export function RiverSelector({ rivers, selectedSlug, onSelect }: RiverSelectorP
     <div
       role="radiogroup"
       aria-label="Pilih sungai yang dipantau"
-      className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
+      className="mt-6 grid grid-cols-1 gap-grid-tight sm:grid-cols-2 xl:grid-cols-3"
     >
       {rivers.map((river) => {
         const isSelected = river.slug === selectedSlug;
@@ -89,8 +89,24 @@ export function RiverSelector({ rivers, selectedSlug, onSelect }: RiverSelectorP
               </span>
             </button>
 
-            <CardBody className="border-t border-editorial px-5 py-3 text-xs">
-              <span className="line-clamp-1">{river.issues.join(' · ')}</span>
+            {/*
+              Sebelumnya daftar isu dipaksa satu baris dengan `line-clamp-1`,
+              sehingga Cisadane (56 karakter) terpotong di tengah kata
+              sementara Citarum (42 karakter) tampil utuh — padahal keduanya
+              sama-sama memuat tiga isu. Dijadikan label terpisah agar setiap
+              isu terbaca penuh dan tepi bawah kartu tetap rata.
+            */}
+            <CardBody className="border-t border-editorial px-5 py-3">
+              <ul className="flex flex-wrap gap-1.5">
+                {river.issues.map((issue) => (
+                  <li
+                    key={issue}
+                    className="rounded-full bg-brand-soft/50 px-2.5 py-1 text-xs font-medium leading-none text-brand-deep"
+                  >
+                    {issue}
+                  </li>
+                ))}
+              </ul>
             </CardBody>
           </Card>
         );

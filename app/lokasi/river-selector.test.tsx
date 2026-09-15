@@ -294,21 +294,27 @@ describe('RiverSelector — isi kartu sungai', () => {
     expect(screen.getByText('-5')).toBeInTheDocument();
   });
 
-  it('menggabungkan isu dengan pemisah titik tengah', () => {
+  it('menampilkan tiap isu sebagai label tersendiri, bukan satu baris gabungan', () => {
     renderSelector();
 
+    // Label terpisah dipakai agar isu panjang tidak terpotong di tengah kata
+    // seperti yang terjadi saat semuanya digabung menjadi satu baris.
+    for (const isu of ['Limbah Tekstil', 'Logam Berat', 'Sedimentasi']) {
+      expect(screen.getByText(isu)).toBeInTheDocument();
+    }
+
     expect(
-      screen.getByText('Limbah Tekstil · Logam Berat · Sedimentasi'),
-    ).toBeInTheDocument();
+      screen.queryByText('Limbah Tekstil · Logam Berat · Sedimentasi'),
+    ).not.toBeInTheDocument();
   });
 
-  it('merender satu isu tanpa pemisah menggantung', () => {
+  it('merender satu isu sebagai label tunggal', () => {
     renderSelector();
 
     expect(screen.getByText('Mikroplastik')).toBeInTheDocument();
   });
 
-  it('tidak merender baris isu yang kosong sebagai teks hantu', () => {
+  it('tidak merender daftar isu ketika tidak ada isu', () => {
     renderSelector({ rivers: [makeRiver({ slug: 'a', name: 'A', issues: [] })] });
 
     expect(radioFor('A')).toBeInTheDocument();

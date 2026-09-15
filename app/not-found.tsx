@@ -67,7 +67,7 @@ export default function NotFound() {
          * menjadi target sentuh jauh di atas 48px.
          */}
         <nav className="mt-10 w-full" aria-label="Tautan bantuan">
-          <ul className="grid list-none gap-4 p-0 sm:grid-cols-3">
+          <ul className="grid list-none gap-grid-tight p-0 sm:grid-cols-3">
             {tautanBantuan.map((tautan) => (
               <li key={tautan.href} className="m-0">
                 <Link

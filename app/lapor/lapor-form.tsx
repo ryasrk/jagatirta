@@ -556,7 +556,7 @@ export function LaporForm() {
         </CardHeader>
 
         <CardBody className="space-y-6">
-          <p className="text-[0.9375rem] leading-relaxed text-ink">
+          <p className="text-sm leading-relaxed text-ink">
             Simpan atau salin nomor ini. Setiap pertanyaan lanjutan tentang laporanmu akan
             ditelusuri lewat nomor tersebut, jadi sebutkan nomor ini saat menghubungi kami.
           </p>
@@ -714,7 +714,7 @@ export function LaporForm() {
             </Button>
           </div>
 
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="mt-4 grid gap-grid-tight sm:grid-cols-2">
             <Input
               label="Latitude"
               readOnly
@@ -890,7 +890,7 @@ export function LaporForm() {
             </svg>
           </span>
           <span className="min-w-0 flex-1">
-            <span className="block text-[0.9375rem] font-semibold leading-6 text-ink">
+            <span className="block text-sm font-semibold leading-6 text-ink">
               Bersedia dihubungi kembali
             </span>
             <span className="mt-0.5 block text-sm leading-5 text-ink-secondary">
